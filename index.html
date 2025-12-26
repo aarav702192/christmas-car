@@ -9,30 +9,31 @@
 
 <style>
   /* ===== BASE ===== */
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: #2a0006;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    overflow: hidden;
-  }
+ body {
+  margin: 0;
+  min-height: 100vh;
+  background: #3b0006; /* Deep wine red */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
 
   /* ===== ROYAL AURA ===== */
-  .aura {
-    position: fixed;
-    inset: -25%;
-    background:
-      radial-gradient(circle at 20% 30%, rgba(255, 60, 0, 0.35), transparent 45%),
-      radial-gradient(circle at 80% 40%, rgba(255, 200, 80, 0.35), transparent 45%),
-      radial-gradient(circle at 50% 75%, rgba(180, 0, 0, 0.35), transparent 45%);
-    filter: blur(90px);
-    animation: auraMove 16s ease-in-out infinite alternate;
-    z-index: 0;
-  }
+.aura {
+  position: fixed;
+  inset: -25%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(180, 0, 30, 0.45), transparent 45%),
+    radial-gradient(circle at 80% 40%, rgba(120, 0, 20, 0.45), transparent 45%),
+    radial-gradient(circle at 50% 75%, rgba(90, 0, 15, 0.45), transparent 45%);
+  filter: blur(90px);
+  animation: auraMove 16s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
 
   @keyframes auraMove {
     from { transform: translateY(-6%) rotate(0deg); }
