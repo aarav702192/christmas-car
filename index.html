@@ -8,10 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+  /* ===== BASE ===== */
   body {
     margin: 0;
     min-height: 100vh;
-    background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+    background: #2a0006;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +21,46 @@
     overflow: hidden;
   }
 
-  /* Snow */
+  /* ===== ROYAL AURA ===== */
+  .aura {
+    position: fixed;
+    inset: -25%;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255, 60, 0, 0.35), transparent 45%),
+      radial-gradient(circle at 80% 40%, rgba(255, 200, 80, 0.35), transparent 45%),
+      radial-gradient(circle at 50% 75%, rgba(180, 0, 0, 0.35), transparent 45%);
+    filter: blur(90px);
+    animation: auraMove 16s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes auraMove {
+    from { transform: translateY(-6%) rotate(0deg); }
+    to   { transform: translateY(6%) rotate(6deg); }
+  }
+
+  /* ===== STARS ===== */
+  .stars {
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 15% 20%, gold, transparent),
+      radial-gradient(1px 1px at 40% 70%, gold, transparent),
+      radial-gradient(1px 1px at 65% 35%, gold, transparent),
+      radial-gradient(1px 1px at 80% 80%, gold, transparent),
+      radial-gradient(1px 1px at 25% 85%, gold, transparent);
+    background-size: 220px 220px;
+    opacity: 0.55;
+    animation: twinkle 6s infinite alternate;
+    z-index: 1;
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.3; }
+    to   { opacity: 0.65; }
+  }
+
+  /* ===== SNOW ===== */
   .snow {
     position: fixed;
     top: -10px;
@@ -30,96 +70,86 @@
     border-radius: 50%;
     opacity: 0.8;
     animation: fall linear infinite;
-  }
-
-  @keyframes fall {
-    to {
-      transform: translateY(110vh);
-    }
-  }
-
-  /* Card */
-  .card {
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(14px);
-    border-radius: 28px;
-    padding: 42px 36px;
-    max-width: 420px;
-    text-align: center;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
-    animation: fadeIn 1.2s ease;
     z-index: 2;
   }
 
+  @keyframes fall {
+    to { transform: translateY(110vh); }
+  }
+
+  /* ===== CARD ===== */
+  .card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    border-radius: 30px;
+    padding: 44px 38px;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 35px 70px rgba(0,0,0,0.5);
+    animation: fadeIn 1.3s ease;
+    z-index: 3;
+  }
+
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(35px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .profile {
-    width: 160px;
-    height: 160px;
+    width: 165px;
+    height: 165px;
     border-radius: 50%;
     border: 4px solid gold;
     object-fit: cover;
-    box-shadow: 0 0 35px rgba(255,215,0,0.9);
+    box-shadow: 0 0 40px rgba(255,215,0,1);
     margin-bottom: 22px;
   }
 
   h1 {
     font-size: 28px;
     color: gold;
-    margin-bottom: 20px;
-    text-shadow: 0 0 18px rgba(255,215,0,0.8);
+    margin-bottom: 22px;
+    text-shadow: 0 0 22px rgba(255,215,0,0.9);
   }
 
   p {
     font-size: 17px;
-    line-height: 1.8;
+    line-height: 1.9;
     font-weight: 300;
   }
 
   .sparkle {
-    margin-top: 22px;
-    font-size: 22px;
+    margin-top: 24px;
+    font-size: 24px;
     animation: glow 2s infinite alternate;
   }
 
   @keyframes glow {
-    from {
-      text-shadow: 0 0 6px gold;
-    }
-    to {
-      text-shadow: 0 0 22px gold;
-    }
+    from { text-shadow: 0 0 6px gold; }
+    to   { text-shadow: 0 0 26px gold; }
   }
 
   .music-btn {
-    margin-top: 24px;
-    padding: 11px 26px;
-    border-radius: 30px;
+    margin-top: 26px;
+    padding: 12px 28px;
+    border-radius: 32px;
     border: none;
-    background: gold;
-    color: #0f2027;
+    background: linear-gradient(135deg, gold, #ffcc66);
+    color: #4a0009;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 10px 24px rgba(255,215,0,0.55);
+    box-shadow: 0 12px 30px rgba(255,215,0,0.6);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .music-btn:hover {
-    transform: scale(1.06);
-    box-shadow: 0 14px 30px rgba(255,215,0,0.75);
+    transform: scale(1.08);
+    box-shadow: 0 18px 40px rgba(255,215,0,0.8);
   }
 
   footer {
-    margin-top: 20px;
+    margin-top: 22px;
     font-size: 14px;
     opacity: 0.85;
   }
@@ -127,6 +157,10 @@
 </head>
 
 <body>
+
+<!-- Royal Background Layers -->
+<div class="aura"></div>
+<div class="stars"></div>
 
 <!-- Snowflakes -->
 <script>
@@ -166,7 +200,7 @@
   </button>
 
   <footer>
-    With warm wishes 🌟
+    With royal wishes 👑
   </footer>
 </div>
 
