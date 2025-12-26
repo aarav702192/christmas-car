@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Royal Christmas Wishes</title>
+<title>Royal Greetings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+/* ===== BASE ===== */
 body {
   margin: 0;
   min-height: 100vh;
@@ -15,148 +17,168 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
   color: #fff;
+  overflow: hidden;
 }
 
-/* ===== ROYAL AURA ===== */
-.aura {
-  position: fixed;
-  inset: -20%;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(160,0,20,0.45), transparent 45%),
-    radial-gradient(circle at 70% 70%, rgba(90,0,15,0.45), transparent 45%);
-  filter: blur(90px);
-  animation: auraMove 18s ease-in-out infinite alternate;
-  z-index: 0;
-}
-@keyframes auraMove {
-  from { transform: translateY(-5%); }
-  to   { transform: translateY(5%); }
-}
-
-/* ===== CARD ===== */
-.card {
-  position: relative;
+/* ===== POSTER (VERTICAL) ===== */
+.poster {
+  width: 360px;
+  height: 640px;
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(18px);
-  border-radius: 32px;
-  padding: 46px 38px;
-  max-width: 420px;
+  border-radius: 34px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
   text-align: center;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.55);
-  z-index: 2;
+  padding: 36px 28px;
+  position: relative;
   overflow: hidden;
-  transition: transform 0.2s ease;
 }
 
-/* Light sweep */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: -50%;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(255,215,0,0.25),
-    transparent 70%
-  );
-  animation: sweep 6s infinite;
-}
-@keyframes sweep {
-  from { transform: translateX(-100%); }
-  to   { transform: translateX(100%); }
-}
-
-/* ===== ROYAL SEAL ===== */
-.seal {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 22px;
+/* ===== PROFILE ===== */
+.profile {
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  border: 5px solid gold;
+  border: 4px solid gold;
+  object-fit: cover;
+  box-shadow: 0 0 30px gold;
+  margin: 10px auto 18px;
+  display: none;
+}
+
+/* ===== WAX SEAL ===== */
+.seal {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #b1001a, #5c000a);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.6),
+              0 0 40px rgba(255,0,0,0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 40px rgba(255,215,0,0.9);
-  animation: rotateSeal 20s linear infinite;
-}
-@keyframes rotateSeal {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  font-size: 48px;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  margin: 160px auto 0;
 }
 
-.seal span {
-  font-size: 42px;
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Crack effect */
+.crack {
+  animation: crackOpen 0.9s forwards;
+}
+@keyframes crackOpen {
+  to {
+    transform: scale(1.8) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+/* ===== MESSAGE ===== */
+.message {
+  display: none;
+  animation: reveal 1.2s ease forwards;
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: 22px;
+  color: gold;
   text-shadow: 0 0 20px gold;
 }
 
-/* ===== TEXT ===== */
-h1 {
-  font-size: 26px;
-  color: gold;
-  margin-bottom: 20px;
-  text-shadow: 0 0 22px rgba(255,215,0,0.8);
-}
-
 p {
-  font-size: 17px;
-  line-height: 1.9;
-  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-top: 14px;
 }
 
-.sparkle {
-  margin-top: 22px;
-  font-size: 24px;
-  animation: glow 2s infinite alternate;
-}
-@keyframes glow {
-  from { text-shadow: 0 0 6px gold; }
-  to   { text-shadow: 0 0 26px gold; }
+/* ===== NEW YEAR TRANSITION ===== */
+.newyear {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  color: gold;
+  font-size: 42px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s ease forwards;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== FOOTER ===== */
 footer {
-  margin-top: 22px;
-  font-size: 14px;
-  opacity: 0.85;
+  margin-top: 18px;
+  font-size: 13px;
+  opacity: 0.8;
 }
 </style>
 </head>
 
 <body>
 
-<div class="aura"></div>
+<div class="poster">
 
-<div class="card" id="card">
-  <div class="seal">
-    <span>👑</span>
+  <!-- WAX SEAL -->
+  <div class="seal" id="seal" onclick="openSeal()">👑</div>
+
+  <!-- MESSAGE -->
+  <div class="message" id="message">
+    <img src="photo.jpg" class="profile" onerror="this.style.display='none'">
+
+    <h1>🎄 Merry Christmas Akshatha Ma'am 🎄</h1>
+
+    <p>
+      May this season bring joy, peace,  
+      and moments worth cherishing.  
+      <br><br>
+      Wishing you success, warmth,  
+      and happiness always.
+    </p>
+
+    <footer>With royal wishes 👑</footer>
   </div>
 
-  <h1>🎄 Merry Christmas Akshatha Ma'am 🎄</h1>
+  <!-- NEW YEAR -->
+  <div class="newyear" id="newyear">
+    🎆 Happy New Year 2026 🎆
+  </div>
 
-  <p>
-    May this beautiful season fill your life with  
-    happiness, peace, and endless smiles.  
-    <br><br>
-    Wishing you love, warmth, and success  
-    today and always.
-  </p>
-
-  <div class="sparkle">✨ Royal Wishes ✨</div>
-
-  <footer>
-    With respect & warmth 🌟
-  </footer>
 </div>
 
 <script>
-/* Parallax movement */
-const card = document.getElementById("card");
-document.addEventListener("mousemove", e => {
-  const x = (window.innerWidth / 2 - e.clientX) / 40;
-  const y = (window.innerHeight / 2 - e.clientY) / 40;
-  card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-});
+function openSeal() {
+  const seal = document.getElementById("seal");
+  const msg = document.getElementById("message");
+
+  seal.classList.add("crack");
+
+  setTimeout(() => {
+    seal.style.display = "none";
+    msg.style.display = "block";
+    document.querySelector(".profile").style.display = "block";
+  }, 800);
+
+  // New Year transition
+  setTimeout(() => {
+    document.getElementById("newyear").style.display = "flex";
+  }, 4500);
+}
 </script>
 
 </body>
